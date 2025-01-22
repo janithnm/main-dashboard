@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/app-sidebar";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +18,25 @@ export default function RootLayout({
       <body
         className={`antialiased`}
       >
+        {/* <div className="flex justify-start items-start w-full">
+        <div className="flex justify-center items-center w-[300px]">
+          Ass
+        </div>
+        <div className="flex justify-start items-start w-full">
         {children}
+        </div>
+        </div> */}
+        <SidebarProvider>
+      <AppSidebar />
+      <main className="w-full">
+        <div className="w-full bg-yellow-200 flex justify-between">
+
+        <SidebarTrigger />
+        <p className="bg-green-500">Ass</p>
+        </div>
+        {children}
+      </main>
+    </SidebarProvider>
       </body>
     </html>
   );
